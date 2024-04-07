@@ -1,10 +1,11 @@
 import Square from "./square";
 
-export default function Board(xIsNext, squares, onPlay) {
+function Board(xIsNext, squares, onPlay) {
   function handleClick(i) {
     if (squares[i] && calculateWinner(squares)) {
       return;
     }
+
     const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = "X";
@@ -44,6 +45,7 @@ export default function Board(xIsNext, squares, onPlay) {
   );
 }
 
+export default Board;
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
